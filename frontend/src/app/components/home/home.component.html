@@ -1,0 +1,33 @@
+<ul class="flex justify-center items-center flex-wrap p-0">
+  <li *ngFor="let food of foods">
+    <a routerLink="/food/{{food.id}}" class="h-full w-72 border flex flex-col overflow-hidden text-red-600 m-2 rounded-xl border-solid hover:opacity-90 hover:cursor-pointer hover:text-white hover:bg-red-600">
+      <img [src]="food.imageUrl" [alt]="food.name" class="object-cover h-56"/>
+      <div>
+      <div class="relative h-7 px-2 py-1 flex">
+        <div class="name">
+          {{food.name}}
+        </div>
+        <span class="absolute right-2 {{food.favorite?'':'not'}}">
+          ❤
+        </span>
+      </div>
+      <div class="pb-2 flex justify-between items-start">
+          <div class="ml-2">
+            <span *ngFor="let origin of food.origins" class="inline-block text-sm text-gray-600 mr-0.5 px-2 py-0 rounded-3xl bg-gray-200">
+              {{origin}}
+            </span>
+          </div>
+          <div class="text-base mr-2">
+            <span>🕒</span>
+            {{food.cookTime}}
+          </div>
+      </div>
+      <div class="pb-2">
+          <span class="ml-2" >
+            {{food.price | currency}}
+          </span>
+      </div>
+      </div>
+    </a>
+  </li>
+</ul>

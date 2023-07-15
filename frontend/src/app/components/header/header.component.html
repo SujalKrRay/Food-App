@@ -1,1 +1,25 @@
-<p>header works!</p>
+<nav class="relative bg-red-600 p-0">
+  <div class="mx-auto my-0 flex justify-between">
+  <a routerLink="/" class="font-bold p-3 text-white hover:bg-red-900 hover:cursor-pointer">
+    Food Truck
+  </a>
+    <ul class="m-0 flex">
+      <li>
+        <a routerLink="/cart" class="p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">
+          Cart<span class="text-red-800 py-0.5 px-2 rounded-full text-base bg-white">3</span>
+        </a>
+      </li>
+      <li class="relative">
+        <a routerLink="/dashboard" class="p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">John</a>
+        <div class="absolute hidden">
+          <a routerLink="/profile" class="w-full p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Profile</a>
+          <a routerLink="/orders" class="w-full p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Orders</a>
+          <a class="w-full p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Logout</a>
+        </div>
+      </li>
+      <li>
+        <a routerLink="/login" class="p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
