@@ -7,7 +7,7 @@
 <!-- HomePage Content -->
 <ul class="flex justify-center items-center flex-wrap p-0">
   <li *ngFor="let food of foods">
-    <a routerLink="/food/{{food.id}}" class="h-full w-72 border flex flex-col overflow-hidden text-red-600 m-2 rounded-xl border-solid hover:opacity-90 hover:cursor-pointer hover:text-white hover:bg-red-600">
+    <a routerLink="/food/{{food.name}}" class="h-full w-72 border flex flex-col overflow-hidden text-red-600 m-2 rounded-xl border-solid hover:opacity-90 hover:cursor-pointer hover:text-white hover:bg-red-600">
       <img [src]="food.imageUrl" [alt]="food.name" class="object-cover h-56"/>
       <div>
       <div class="relative h-7 px-2 py-1 flex">
