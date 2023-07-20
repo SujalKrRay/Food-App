@@ -1,6 +1,10 @@
 <h1 class="text-5xl text-gray-500 mx-3 my-2 p-3">Cart Page</h1>
 
-<div class="flex flex-wrap items-start mt-2 m-6">
+<!-- not-found-content -->
+<app-not-found [visible]="!cart || !cart.items.length" notFoundMessage="Your cart is Empty!" resetLinkText="Go to HomePage"></app-not-found>
+
+<!-- food items -->
+<div *ngIf="cart && cart.items.length" class="flex flex-wrap items-start mt-2 m-6">
    <ul class="flex flex-col flex-[3_0] justify-evenly border-2 m-2 rounded-2xl border-solid border-red-900">
       <li *ngFor="let cartItem of cart.items" class="flex justify-around items-center flex-wrap p-2 text-lg">
          <div class="p-3">

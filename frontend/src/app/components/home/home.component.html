@@ -4,6 +4,9 @@
 <!-- Tags -->
 <app-tags></app-tags>
 
+<!-- not-found-content -->
+<app-not-found [visible]="!foods || !foods.length" resetLinkText="Reset Search"></app-not-found>
+
 <!-- HomePage Content -->
 <ul class="flex justify-center items-center flex-wrap p-0">
   <li *ngFor="let food of foods">
