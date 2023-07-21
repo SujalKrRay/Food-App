@@ -11,6 +11,8 @@ import { TagsComponent } from './components/tags/tags.component';
 import { FoodPageComponent } from './components/food-page/food-page.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LgoinPageComponent } from './components/lgoin-page/lgoin-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FoodPageComponent,
     CartPageComponent,
     NotFoundComponent,
+    LgoinPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,25 @@
+<div class="flex justify-center">
+  <form [formGroup]="loginForm" (ngSubmit)="submit()" class="p-4 rounded-lg border mt-20 w-1/3">
+      <h1 class="text-center text-2xl">Login Form</h1>
+      <div class="my-5 w-full">
+        <label>Email</label>
+        <input type="email" placeholder="Email" formControlName="email" class="p-2 rounded w-full border text-sm"/>
+        <div class="p-1 bg-red-300 text-red-800 text-sm rounded" *ngIf="fc.email.errors && isSubmitted">
+          <div *ngIf="fc.email.errors.required">Should not be empty</div>
+          <div *ngIf="fc.email.errors.email">Email is not correct</div>
+        </div>
+      </div>
+
+      <div class="my-5 w-full">
+        <label>Password</label>
+        <input type="password" placeholder="Password" formControlName="password" class="p-2 rounded w-full border text-sm"/>
+        <div class="p-1 bg-red-300 text-red-800 text-sm rounded" *ngIf="fc.password.errors && isSubmitted">
+          <div *ngIf="fc.password.errors.required">Should not be empty</div>
+        </div>
+      </div>
+
+      <div class="my-5 w-full">
+        <button type="submit" class="p-2 w-full bg-red-600 text-white hover:bg-red-900 rounded">Login</button>
+      </div>
+  </form>
+</div>
