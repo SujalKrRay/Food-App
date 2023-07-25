@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { FoodPageComponent } from './components/food-page/food-page.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
-import { LgoinPageComponent } from './components/lgoin-page/lgoin-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'tag/:tag', component: HomeComponent },
   { path: 'food/:name', component: FoodPageComponent },
   { path: 'cart', component: CartPageComponent },
-  { path: 'login', component: LgoinPageComponent },
+  { path: 'login', component: LoginPageComponent },
 ];
 
 @NgModule({

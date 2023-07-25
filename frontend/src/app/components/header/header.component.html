@@ -9,15 +9,15 @@
           Cart <span *ngIf="cartQuantity" class="text-red-800 py-0.5 px-2 rounded-full text-base bg-white">{{cartQuantity}}</span>
         </a>
       </li>
-      <li class="relative">
-        <a routerLink="/dashboard" class="p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">John</a>
-        <div class="absolute hidden">
+      <li *ngIf="isAuth" class="relative group">
+        <a routerLink="/dashboard" class="p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">{{user.name}}</a>
+        <div class="absolute hidden group-hover:block bg-red-600">
           <a routerLink="/profile" class="w-full p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Profile</a>
           <a routerLink="/orders" class="w-full p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Orders</a>
-          <a class="w-full p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Logout</a>
+          <a (click)="logout()" class="w-full p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Logout</a>
         </div>
       </li>
-      <li>
+      <li *ngIf="!isAuth" >
         <a routerLink="/login" class="p-3 inline-block text-white hover:bg-red-900 hover:cursor-pointer">Login</a>
       </li>
     </ul>

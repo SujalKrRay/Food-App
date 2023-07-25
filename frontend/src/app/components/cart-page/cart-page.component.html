@@ -16,12 +16,12 @@
                {{ cartItem.food.name }}
             </a>
          </div>
-         <div class="">
+         <div>
             <select #quantitySelect class="w-10 outline-none font-thin border-b-2"
                [value]="cartItem.quantity"
                (change)="changeQuantity(cartItem, quantitySelect.value)">
                <option>1</option>
-               <option>2</option>text-lg
+               <option>2</option>
                <option>3</option>
                <option>4</option>
                <option>5</option>

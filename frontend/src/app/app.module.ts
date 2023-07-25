@@ -11,8 +11,10 @@ import { TagsComponent } from './components/tags/tags.component';
 import { FoodPageComponent } from './components/food-page/food-page.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { LgoinPageComponent } from './components/lgoin-page/lgoin-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FoodPageComponent,
     CartPageComponent,
     NotFoundComponent,
-    LgoinPageComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
