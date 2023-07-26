@@ -14,7 +14,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { InputContainerComponent } from './components/input-container/input-container.component';
+import { InputValidationComponent } from './components/input-validation/input-validation.component';
+import { TextInputComponent } from './components/text-input/text-input.component';
+import { DefaultButtonComponent } from './components/default-button/default-button.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     CartPageComponent,
     NotFoundComponent,
     LoginPageComponent,
+    RegisterPageComponent,
+    InputContainerComponent,
+    InputValidationComponent,
+    TextInputComponent,
+    DefaultButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from '../shared/models/user';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL } from '../shared/constants/url';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/url';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
 const USER_KEY = 'User';
 
@@ -12,9 +13,11 @@ const USER_KEY = 'User';
   providedIn: 'root',
 })
 export class UserService {
-  private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
+  private userSubject = new BehaviorSubject<User>(
+    this.getUserFromLocalStorage()
+  );
   public userObservable: Observable<User>;
-  
+
   constructor(private http: HttpClient, private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable();
   }
@@ -35,6 +38,24 @@ export class UserService {
         },
       })
     );
+  }
+
+  register(userRegister: IUserRegister): Observable<User> {
+    return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(
+            `Welcome to Food Truck!`,
+            'Registration Successful'
+          )
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Registration Failed');
+        },
+      })
+    )
   }
 
   logout() {

@@ -1,0 +1,22 @@
+<div class="flex justify-center">
+  <form [formGroup]="registerForm" (ngSubmit)="submit()" class="mt-8 w-1/3">
+      <h1 class="text-center text-3xl mb-3">Registration Form</h1>
+      <text-input [control]="fc.name" [showErrorsWhen]="isSubmitted" label="Name">
+      </text-input>
+      <text-input [control]="fc.email" [showErrorsWhen]="isSubmitted" type="email" label="Email">
+      </text-input>
+      <text-input [control]="fc.password" [showErrorsWhen]="isSubmitted" type="password" label="Password">
+      </text-input>
+      <text-input [control]="fc.confirmPassword" [showErrorsWhen]="isSubmitted" type="password" label="Confirm Password">
+      </text-input>
+      <text-input [control]="fc.address" [showErrorsWhen]="isSubmitted" label="Address">
+      </text-input>
+      <default-button text="Register"></default-button>
+      <div class="mt-2 flex justify-center items-center">
+         Already a user? &nbsp;
+         <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">
+            Login Here!
+         </a>
+      </div>
+  </form>
+</div>

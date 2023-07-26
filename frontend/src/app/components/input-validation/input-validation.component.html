@@ -1,0 +1,7 @@
+<div
+  *ngIf="errorMessages && showErrorsWhen"
+  class="bg-red-300 text-red-800 text-base rounded flex justify-center absolute w-48 right-1 top-11">
+  <div *ngFor="let errorMessage of errorMessages">
+    {{ errorMessage }}
+  </div>
+</div>
