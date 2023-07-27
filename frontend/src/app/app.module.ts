@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,7 +19,9 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { InputContainerComponent } from './components/input-container/input-container.component';
 import { InputValidationComponent } from './components/input-validation/input-validation.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
-import { DefaultButtonComponent } from './components/default-button/default-button.component'
+import { DefaultButtonComponent } from './components/default-button/default-button.component';
+import { LoadingComponent } from './components/loading/loading.component'
+import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { DefaultButtonComponent } from './components/default-button/default-butt
     InputValidationComponent,
     TextInputComponent,
     DefaultButtonComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,9 @@ import { DefaultButtonComponent } from './components/default-button/default-butt
     ReactiveFormsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
