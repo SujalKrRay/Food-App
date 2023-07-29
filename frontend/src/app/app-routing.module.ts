@@ -5,6 +5,7 @@ import { FoodPageComponent } from './components/food-page/food-page.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'cart', component: CartPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  { path: 'checkout', component: CheckoutPageComponent },
 ];
 
 @NgModule({

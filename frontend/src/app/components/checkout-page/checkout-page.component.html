@@ -1,0 +1,20 @@
+<h1 class="text-5xl text-gray-500 mx-3 my-2 p-3">Order Page</h1>
+<div class="flex flex-wrap justify-center mb-24 mx-6">
+  <div class="w-2/5 mr-12">
+   <form [formGroup]="checkoutForm" class="flex flex-col w-full">
+      <text-input [control]="fc.name" label="Name"></text-input>
+      <text-input [control]="fc.address" label="Address"></text-input>
+   </form>
+   <order-items-list [order]="order"></order-items-list>
+  </div>
+  <div class="map">
+    <label class="text-2xl text-gray-700">Choose Your Address On Map</label>
+  </div>
+  <div class="basis-full flex justify-center">
+    <div class="w-96 m-8">
+      <button (click)="createOrder()" class="text-white bg-red-600 w-full h-12 text-xl rounded-lg hover:bg-red-900 hover:cursor-pointer">
+        Go To Payment
+      </button>
+    </div>
+  </div>
+</div>
