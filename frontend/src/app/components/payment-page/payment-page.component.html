@@ -1,0 +1,25 @@
+<h1 class="text-5xl text-gray-500 mx-3 my-2 p-3">Order Summary</h1>
+<div class="flex flex-wrap justify-center mx-6">
+  <div class="w-2/5 mr-12">
+   <div class="summary">
+      <div class="flex mt-3">
+        <h3 class="basis-20 ml-0 mr-4 my-0">Name:</h3>
+        <span class="text-base">{{order.name}}</span>
+      </div>
+      <div class="flex mt-3">
+        <h3 class="basis-20 ml-0 mr-4 my-0">Address:</h3>
+        <span class="text-base">{{order.address}}</span>
+      </div>
+    </div>
+   <order-items-list [order]="order"></order-items-list>
+  </div>
+  <div class="map">
+    <label class="text-2xl text-gray-700">Delivery Address</label>
+    <map [order]="order" [readonly]="true"></map>
+  </div>
+  <div class="basis-full flex justify-center">
+    <div class="w-96 m-8">
+      
+    </div>
+  </div>
+</div>
