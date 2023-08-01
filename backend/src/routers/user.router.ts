@@ -24,9 +24,9 @@ router.post(
   "/login",
   asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-    const user = await UserModel.findOne({ email, password });
+    const user = await UserModel.findOne({ email });
 
-    if (user) {
+    if (user && (await bcrypt.compare(password, user.password))) {
       res.send(generateTokenResponse(user));
     } else {
       res.status(HTTP_BAD_REQUEST).send("Username or password is invalid!");
@@ -45,7 +45,6 @@ router.post(
     }
     const encryptedPassword = await bcrypt.hash(password, 10);
     const newUser:User = {
-      id:'',
       name,
       email:email.toLowerCase(),
       password:encryptedPassword,
@@ -65,12 +64,11 @@ router.post(
      },
      process.env.JWT_SECRET!,
      {
-       expiresIn: "60d",
+       expiresIn: "300d",
      }
    );
 
    return {
-     id: user.id,
      email: user.email,
      name: user.name,
      address: user.address,
