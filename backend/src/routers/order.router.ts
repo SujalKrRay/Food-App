@@ -1,5 +1,5 @@
 import { Router } from "express";
-import asyncHander from "express-async-handler";
+import asyncHandler from "express-async-handler";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
 import { OrderStatus } from "../constants/order_status";
 import { OrderModel } from "../models/order.model";
@@ -8,7 +8,7 @@ import auth from "../middlewares/auth.mid";
 const router = Router();
 router.use(auth);
 
-router.post('/create', asyncHander(async (req:any, res:any) => {
+router.post('/create', asyncHandler(async (req:any, res:any) => {
    const requestOrder = req.body;
 
    if(requestOrder.items.length <= 0){
@@ -17,11 +17,11 @@ router.post('/create', asyncHander(async (req:any, res:any) => {
    }
 
    await OrderModel.deleteOne({
-      user: res.user.id,
+      user: res.user.name,
       status: OrderStatus.NEW
    })
 
-   const newOrder = new OrderModel({ ...requestOrder, user: req.user.id });
+   const newOrder = new OrderModel({ ...requestOrder, user: req.user.name });
    await newOrder.save();
    res.send(newOrder);
 })
@@ -29,9 +29,9 @@ router.post('/create', asyncHander(async (req:any, res:any) => {
 
 router.get(
   "/newOrderForCurrentUser",
-  asyncHander(async (req: any, res) => {
+  asyncHandler(async (req: any, res) => {
     const order = await OrderModel.findOne({
-      user: req.user.id,
+      user: req.user.name,
       status: OrderStatus.NEW,
     });
     if (order) res.send(order);
