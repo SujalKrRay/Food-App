@@ -2,7 +2,7 @@
     "name": "foodtruck",
     "version": "1.0.0",
     "engines": {
-        "node": ">=18"
+        "node": ">=18 <20"
     },
     "scripts": {
         "start": "cd backend/built && node server.js",
