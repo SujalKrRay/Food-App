@@ -4,10 +4,10 @@
       <h3 class="text-gray-700 ml-1 mt-2">Order Items:</h3>
     </td>
   </tr>
-  <tr *ngFor="let item of order.items" class="text-center h-14">
+  <tr *ngFor="let item of order.items" class="text-center h-16">
     <td>
       <a routerLink="/food/{{item.food.name}}" class="hover:cursor-pointer">
-        <img [src]="item.food.imageUrl" class="w-12 h-12 object-cover rounded-full"/>
+        <img [src]="item.food.imageUrl" class="w-14 h-14 object-fill rounded-full"/>
       </a>
     </td>
     <td>
